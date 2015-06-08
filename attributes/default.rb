@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-default['supervisor']['use_package'] = false
+default['supervisor']['use_package'] = true
 default['supervisor']['unix_http_server']['chmod'] = '700'
 default['supervisor']['unix_http_server']['chown'] = 'root:root'
 default['supervisor']['inet_port'] = nil
