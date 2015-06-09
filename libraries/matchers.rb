@@ -19,6 +19,14 @@ if defined?(ChefSpec)
     ChefSpec::Matchers::ResourceMatcher.new(:supervisor_service, :restart, service_name)
   end
 
+  def update_supervisor_service(service_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:supervisor_service, :update, service_name)
+  end
+
+  def reread_supervisor_service(service_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:supervisor_service, :reread, service_name)
+  end
+
   def enable_supervisor_group(group_name)
     ChefSpec::Matchers::ResourceMatcher.new(:supervisor_group, :enable, group_name)
   end

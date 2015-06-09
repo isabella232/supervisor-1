@@ -117,6 +117,25 @@ def disable_service
   end
 end
 
+def update_service
+  e = execute "supervisorctl update" do
+    action :nothing
+    user "root"
+  end
+
+  e.run_action(:run)
+end
+
+def reread_service
+  e = execute "supervisorctl reread" do
+    action :nothing
+    user "root"
+  end
+
+  e.run_action(:run)
+end
+
+
 def supervisorctl(action)
   cmd = "supervisorctl #{action} #{cmd_line_args} | grep -v ERROR"
   result = Mixlib::ShellOut.new(cmd).run_command
