@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: supervisor
-# Recipe:: default
+# Recipe:: package
 #
 # Copyright 2011, Opscode, Inc.
 #
@@ -17,9 +17,4 @@
 # limitations under the License.
 #
 
-
-if node['supervisor']['use_package']
-  include_recipe 'supervisor::package'
-else
-  include_recipe 'supervisor::source'
-end
+package 'supervisor'
