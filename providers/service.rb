@@ -83,6 +83,18 @@ action :restart do
   end
 end
 
+action :reread do
+  converge_by("Reread #{ new_resource }") do
+    reread_service
+  end
+end
+
+action :update do
+  converge_by("Reread #{ new_resource }") do
+    update_service
+  end
+end
+
 def enable_service
   e = execute "supervisorctl update" do
     action :nothing
