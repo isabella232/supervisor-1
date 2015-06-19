@@ -84,13 +84,13 @@ action :restart do
 end
 
 action :reread do
-  converge_by("Reread #{ new_resource }") do
+  converge_by("Rereading") do
     reread_service
   end
 end
 
 action :update do
-  converge_by("Reread #{ new_resource }") do
+  converge_by("Updating") do
     update_service
   end
 end
