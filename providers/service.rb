@@ -176,7 +176,9 @@ def get_current_state(service_name)
 end
 
 def load_current_resource
-  @current_resource = Chef::Resource::SupervisorService.new(@new_resource.name)
+  # This is no longer valid as of chef 13. See https://discourse.chef.io/t/chef-client-13-released/10735 -> "DSL-based custom resources and providers no longer get module constants"
+  supervisor_service = Chef::Resource.resource_for_node(:supervisor_service, node)
+  @current_resource = supervisor_service.new(@new_resource.name)
   @current_resource.state = get_current_state(@new_resource.name)
 end
 
