@@ -7,7 +7,7 @@ version           "0.4.15"
 
 recipe "supervisor", "Installs and configures supervisord"
 
-depends "python"
+depends "poise-python"
 depends "apt"
 
 %w{ ubuntu debian redhat centos fedora amazon smartos }.each do |os|

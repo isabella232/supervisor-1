@@ -17,9 +17,9 @@
 # limitations under the License.
 #
 
-include_recipe "python"
+include_recipe "poise-python"
 
-python_pip "supervisor" do
+python_package "supervisor"
   action :upgrade
   version node['supervisor']['version'] if node['supervisor']['version']
 end
